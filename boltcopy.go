@@ -133,7 +133,6 @@ func copyBucket(idb, odb *bolt.DB, bucket string) error {
 			return ib.ForEach(func(k, v []byte) error {
 				return ob.Put(k, v)
 			})
-			return nil
 		})
 	})
 }
