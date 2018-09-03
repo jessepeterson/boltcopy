@@ -108,13 +108,9 @@ func genBucketCopyList(db *bolt.DB, buckets []string, includeOnly bool) ([]strin
 					break
 				}
 			}
-
-			if includeOnly && found {
-				bucketList = append(bucketList, string(nm))
-			} else if !includeOnly && !found {
+			if (includeOnly && found) || (!includeOnly && !found) {
 				bucketList = append(bucketList, string(nm))
 			}
-
 			return nil
 		})
 		return nil
