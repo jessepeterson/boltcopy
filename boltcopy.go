@@ -89,6 +89,8 @@ func main() {
 	}
 	defer odb.Close()
 
+	odb.NoSync = true
+
 	for _, b := range bucketList {
 		err := copyBucket(idb, odb, b)
 		if err != nil {
